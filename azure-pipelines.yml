@@ -20,3 +20,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- script: |
+    # Save the entire job logs to a file
+    echo "##### ArtifactStagingDirectory #####"
+    ls -ltr $(Build.ArtifactStagingDirectory)
+    echo "##### BuildDirectory #####"
+    ls -ltr $(Agent.BuildDirectory)
+    echo "##### BuildId #####"
+    ls -ltr $(Build.BuildId)
+  displayName: 'Save Job Logs'
