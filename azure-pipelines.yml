@@ -28,5 +28,5 @@ steps:
     echo "##### BuildDirectory #####"
     ls -ltr $(Agent.BuildDirectory)
     echo $(Agent.BuildDirectory)/logs/$(Build.BuildId)/
-    ls -ltr $(Agent.BuildDirectory)/logs/$(Build.BuildId)/
+    ls -ltr $(Agent.BuildDirectory)/logs
   displayName: 'Save Job Logs'
