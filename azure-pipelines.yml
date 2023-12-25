@@ -21,17 +21,11 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 - script: |
-    # Store artifact information in environment variables
-    echo "##vso[task.setvariable variable=ArtifactName;isOutput=true]drop"
-    echo "##vso[task.setvariable variable=ArtifactPath;isOutput=true]$(Build.ArtifactStagingDirectory)"
-  displayName: 'Set Environment Variables'
-- script: |
     # Save the entire job logs to a file
     echo "##### ArtifactStagingDirectory #####"
     echo $(Build.ArtifactStagingDirectory)
     ls -ltr $(Build.ArtifactStagingDirectory)
     echo "##### BuildDirectory #####"
     ls -ltr $(Agent.BuildDirectory)
-    echo "Artifact Name: $ArtifactName"
-    echo "Artifact Path: $ArtifactPath"
+    echo $(Agent.BuildDirectory)/logs/$(Build.BuildId)/
   displayName: 'Save Job Logs'
