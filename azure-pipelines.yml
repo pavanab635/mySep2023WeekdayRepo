@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 
 - script: |
-    mvn package > $(Agent.BuildDirectory)/maven_output.txt 2>&1
+    mvn package 
   displayName: 'Capture Maven Build Output'
 
 - script: |
