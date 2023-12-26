@@ -21,9 +21,6 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- script: |
-    mvn package 
-  displayName: 'Capture Maven Build Output'
 
 - script: |
     # Save the entire job logs to a file
