@@ -31,11 +31,13 @@ steps:
     
 - script: |
     # Save the entire job logs to a file
-    echo "##### ArtifactStagingDirectory #####"
-    echo $(Build.ArtifactStagingDirectory)
-    ls -ltr $(Build.ArtifactStagingDirectory)
-    echo "##### BuildDirectory #####"
-    ls -ltr $(Agent.BuildDirectory)
-    echo $(Agent.BuildDirectory)/logs/$(Build.BuildId)/
+    # echo "##### ArtifactStagingDirectory #####"
+    # echo $(Build.ArtifactStagingDirectory)
+    # ls -ltr $(Build.ArtifactStagingDirectory)
+    # echo "##### BuildDirectory #####"
+    # ls -ltr $(Agent.BuildDirectory)
+    # echo $(Agent.BuildDirectory)/logs/$(Build.BuildId)/
+    echo "##### output #####"
+    cat $(Agent.BuildDirectory)/jfrog_output.txt
     tree $(Agent.BuildDirectory)
   displayName: 'Save Job Logs'
