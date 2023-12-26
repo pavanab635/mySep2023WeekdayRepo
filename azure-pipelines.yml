@@ -23,11 +23,11 @@ steps:
 
 - script: |
     # Save the entire job logs to a file
-    echo "##### ArtifactStagingDirectory #####" >> jfrog_output.txt
+    echo "##### ArtifactStagingDirectory #####" >> $(Agent.BuildDirectory)/jfrog_output.txt
   displayName: 'upload file'
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(System.DefaultWorkingDirectory)'
+    pathtoPublish: '$(Agent.BuildDirectory)'
     
 - script: |
     # Save the entire job logs to a file
