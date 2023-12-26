@@ -13,13 +13,17 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'MyPhoenixApp/pom.xml'
-    mavenOptions: '-Xmx3072m > maven_output.txt 2>&1'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- script: |
+    mvn package > $(Agent.BuildDirectory)/maven_output.txt 2>&1
+  displayName: 'Capture Maven Build Output'
 
 - script: |
     # Save the entire job logs to a file
